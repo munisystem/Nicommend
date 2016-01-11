@@ -11,19 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111063104) do
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "video"
-    t.string   "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20160111211411) do
 
   create_table "videos", force: :cascade do |t|
     t.string   "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "comment"
   end
 
   create_table "words", force: :cascade do |t|
@@ -31,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160111063104) do
     t.string   "word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "item"
   end
 
 end
