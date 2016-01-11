@@ -23,6 +23,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# lib/niconico.rb
+#gem 'json'
+#gem 'uri'
+#gem 'open-uri'
+#gem 'net/https'
+#gem 'net/http'
+#gem 'rexml/document'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
