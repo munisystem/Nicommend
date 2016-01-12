@@ -56,6 +56,7 @@ GEM
       railties (~> 4.0)
     erubis (2.7.0)
     execjs (2.6.0)
+    ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -75,6 +76,8 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    natto (1.1.0)
+      ffi (>= 1.9.0)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     rack (1.6.4)
@@ -150,6 +153,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
+  natto
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
