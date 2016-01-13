@@ -1,4 +1,5 @@
 class Word < ActiveRecord::Base
+
   def self.get_video_tfidf(id)
     nico = Niconico.new
     nico.login(ENV['NICO_MAIL'], ENV['NICO_PASS'])
@@ -6,16 +7,10 @@ class Word < ActiveRecord::Base
     tfidf = Tfidf.new
     videos_count = Video.get_all_count()
 
-    nm = Natto::MeCab.new
-    words = []
-    comments.each do |comment|
-      nm.parse(comment) do |n|
-        if /^名詞/ =~ n.feature.split(/,/)[0] then
-          words << n.surface
-        end
-      end
-    end
+    mecab = Morphological.new
+    words = mecab.get_mophological(comments)
     words_count = words.count
+
     lists = words.each_with_object(Hash.new(0)) {|e, h| h[e] += 1 }
     tfidf_hash = Hash.new
     lists.each do |key, value|
