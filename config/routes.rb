@@ -53,5 +53,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  post "recommend/special_words" => "recommend#special_words"
+  post "recommend" => "recommend#show_recommend"
 end

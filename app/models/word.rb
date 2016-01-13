@@ -67,7 +67,7 @@ class Word < ActiveRecord::Base
       videos_tfidf.store(id, sum)
     end
     videos_sort = Hash[videos_tfidf.sort_by{ |_, v| -v }]
-    return videos_sort
+    return videos_sort.keys
   end
 
 end
