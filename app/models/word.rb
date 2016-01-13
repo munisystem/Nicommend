@@ -20,7 +20,7 @@ class Word < ActiveRecord::Base
       tfidf_hash.store(key, num)
     end
     tfidf_sort = Hash[tfidf_hash.sort_by{ |_, v| -v }]
-    return tfidf_sort.first(20)
+    return tfidf_sort
   end
 
   def self.get_word_count(word)
