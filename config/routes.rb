@@ -53,5 +53,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  post "recommend/special_words" => "recommend#special_words"
+  root :to => 'recommend#index'
+  get 'recommend' => 'recommend#show_recommend'
 end
