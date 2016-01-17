@@ -1,29 +1,41 @@
-<div id="recommend">
-  <div class = "user_send_video">
-    <h2>解析した動画</h2>
-    <div class = "thumb">
+<div class="container">
+<div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+<div class="content" style="box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.4); padding: 20px; border-radius: 15px; overflow: auto; background-color: rgba(255,255,255,0.7); margin-top: 20px">
+  <div class = "col-xs-12">
+    <h3 class="text-center" style="margin-top: 10px;">解析した動画</h3>
+    <hr style="border-top-color: black;"></hr>
+    <div class = "embed-responsive embed-responsive-16by9 col-xs-12 text-center">
       <script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/<%= @user_send_video %>"></script>
     </div>
-    <div class = "special_words">
-      <h2>この動画の特徴語</h2>
-      <div>
+    <div class = "content">
+    <h3 class="text-center" style="margin-top: 320px;">この動画の特徴語</h3>
+      <hr style="border-top-color: black;"></hr>
+      <ul class="list-group">
         <% @video_tfidf.first(10).each do |word| %>
-          <%= word %>
+          <li class="list-group-item col-xs-6"><%= word %></li>
         <% end %>
-      </div>
+      </ul>
     </div>
   </div>
-  <div class = "ranking">
-    <h2>あなたの選んだ動画に近い動画</h2>
+</div>
+  <div class="content" style="box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.4); padding: 20px; border-radius: 15px; overflow: auto; background-color: rgba(255,255,255,0.7); margin-top: 20px">
+    <div class="col-xs-12">
+    <h3 class="text-center" style="margin-top: 10px">あなたの選んだ動画に近い動画</h3>
+    <hr style="border-top-color: black;"></hr>
     <% @recommend.each_with_index do |id, i| %>
-    <li class = "inner">
-      <div class = "inner-title">
-        <h2>第<%= i + 1%>位</h2>
-      </div>
-      <div class = "thumb">
+    <div class = "content">
+      <% if i == 0 %>
+      <h4 class="text-center">第<%= i + 1 %>位</h4>
+      <% else %>
+      <h4 class="text-center" style="margin-top: 310px;">第<%= i + 1 %>位</h4>
+      <% end %>
+       <div class = "embed-responsive embed-responsive-16by9 col-xs-12 text-center">
         <script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/<%= id %>"></script>
       </div>
-    </li>
-  </div>
+    </div>
   <% end %>
+  </div>
+  </div>
+  </div>
+</div>
 </div>
