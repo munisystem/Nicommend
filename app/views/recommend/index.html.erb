@@ -1,4 +1,18 @@
-<%= form_tag('/recommend', :method => :get) do %>
-  <div><%= text_field_tag(:id) %></div>
-  <%= submit_tag "解析" %>
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+  <div class="content" style="box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.4); padding: 20px; border-radius: 15px; overflow: auto;">
+  <div class="ol-xs-12 col-sm-10 col-md-6 col-sm-offset-1">
+  <h2 class="text-center">Nicommend</h2>
+    <hr></hr>
+  <h4 class="text-center">「もうランキングなんて見る必要ないよね」</h4>
+  <p class="text-center">動画のコメントを解析してランキングからあなたにピッタリの動画を推薦します。</p>
+<%= form_tag('/recommend', :method => :get, :class => 'form-inline') do %>
+  <div class="form-group col-xs-12">
+    http://www.nicovideo.jp/watch/ <%= text_field_tag(:id, '', :placeholder => 'sm*******', :class => 'form-control') %>
+    <%= button_tag('ニコる'.html_safe, :class => "btn btn-warning") %>
+  </div>
 <% end %>
+    </div>
+    </div>
+    </div>
+</div>
