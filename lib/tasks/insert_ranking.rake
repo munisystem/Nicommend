@@ -28,10 +28,10 @@ namespace :insert_db do
     end
   end
 
-  task :test_tfidf => :environment do
+  task :tfidf, ['id'] => :environment do |task, args|
     nico = Niconico.new
     nico.login(ENV['NICO_MAIL'], ENV['NICO_PASS'])
-    VIDEO_ID = 'sm19011429'
+    VIDEO_ID = args[:id]
     comments = nico.get_comments(VIDEO_ID).compact.reject(&:empty?)
     tfidf = Tfidf.new
     videos = Video.all.count
@@ -55,8 +55,7 @@ namespace :insert_db do
       tfidf_hash.store(key, num)
     end
     tfidf_sort = Hash[tfidf_hash.sort_by{ |_, v| -v }]
-    p tfidf_sort.first(100)
-
+    p tfidf_sort.first(50)
 
   end
 
